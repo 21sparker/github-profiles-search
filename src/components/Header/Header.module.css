@@ -1,0 +1,20 @@
+.container {
+    height: 72px;
+}
+
+.header {
+    font-size: 24px;
+    margin: 0;
+    padding: 20px 0 20px 30px;
+    background-color: #05264c;
+    color: #fff;
+} 
+
+
+@media (max-width: 480px) {
+    .header {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+}
