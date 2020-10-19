@@ -1,6 +1,7 @@
 .container {
     margin-top: 30px;
     display: flex;
+    font-size: 1.8rem;
 }
 
 .avatar {
@@ -11,5 +12,5 @@
 .general-info {
     margin-left: 20px;
     line-height: 3rem;
-    font-size: 1.8rem;;
+    font-size: 1.8rem;
 }

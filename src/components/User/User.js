@@ -6,6 +6,7 @@ import { getFullMonth } from "../../utils/date-utils";
 const User = ({ username }) => {
     const [found, setFound] = useState(false);
     const [user, setUser] = useState({});
+    const [errorMessage, setErrorMessage] = useState("");
 
     // Only get user if username prop has changed
     useEffect(() => {
@@ -20,10 +21,18 @@ const User = ({ username }) => {
         try {
             // Default to user as found
             setFound(true);
+            setErrorMessage("");
 
             // Request profile data for user from Github API
             const response = await fetch(`https://api.github.com/users/${username}`);
-            response.json().then((jsonResponse) => setUser(jsonResponse));
+            response.json().then((jsonResponse) => {
+                if (jsonResponse.message === "Not Found"){
+                    setFound(false);
+                    setErrorMessage("User not found.");
+                } else {
+                    setUser(jsonResponse);
+                }
+            });
 
         } catch (error) {
             console.log("Error" , error);
@@ -51,7 +60,12 @@ const User = ({ username }) => {
 
     return (
         <>
-            { ((Object.keys(user).length > 0) && found) ? userInfo(user) : null }
+            { ((Object.keys(user).length > 0) && found) 
+                ? userInfo(user) 
+                : <div className={styles["container"]}>
+                    {errorMessage}
+                  </div> 
+            }
         </>
     )
 }
