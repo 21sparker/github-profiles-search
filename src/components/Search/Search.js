@@ -14,8 +14,13 @@ const Search = () => {
     return (
         <div className={styles["container"]}>
             <form onSubmit={handleSubmit} className={styles["search-form"]}>
-                <input type="text" placeholder="Enter Github Username" onChange={e => setUsername(e.target.value)} required={true} />
-                <button type="submit">Search</button>
+                <input 
+                    type="text" 
+                    placeholder="Enter Github Username" 
+                    onChange={e => setUsername(e.target.value)} 
+                    required={true} 
+                    className={styles["search-input"]}/>
+                <button type="submit" className={styles["search-btn"]}>Search</button>
             </form>
             {user.element}
         </div>
