@@ -37,7 +37,7 @@ const User = ({ username }) => {
 
         return (
             <div className={styles["container"]}>
-                <img className={styles["avatar"]} src={user.avatar_url} />
+                <img className={styles["avatar"]} src={user.avatar_url} alt="Avatar"/>
                 <div className={styles["general-info"]}>
                     Name: {user.name} <br/>
                     Username: {user.login} <br/>
