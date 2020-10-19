@@ -1,5 +1,15 @@
 .container {
-    height: 30vh;
-    width: 100%;
     margin-top: 30px;
+    display: flex;
+}
+
+.avatar {
+    height: 200px;
+    width: 200px;
+}
+
+.general-info {
+    margin-left: 20px;
+    line-height: 3rem;
+    font-size: 1.8rem;;
 }

@@ -23,12 +23,10 @@ const User = ({ username }) => {
 
             // Request profile data for user from Github API
             const response = await fetch(`https://api.github.com/users/${username}`);
-            const jsonData = await response.json();
-            setUser(jsonData);
-
-            // setUser(response);
+            response.json().then((jsonResponse) => setUser(jsonResponse));
 
         } catch (error) {
+            console.log("Error" , error);
             setFound(false);
         }
     }
@@ -39,8 +37,8 @@ const User = ({ username }) => {
 
         return (
             <div className={styles["container"]}>
-                <img src={user.avatar_url} />
-                <div>
+                <img className={styles["avatar"]} src={user.avatar_url} />
+                <div className={styles["general-info"]}>
                     Name: {user.name} <br/>
                     Username: {user.login} <br/>
                     # of Repos: {user.public_repos} <br/>
